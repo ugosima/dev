@@ -3,8 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Ugosima</title>
+    <meta name="description" content="Bright Ugosima - Full Stack Developer specializing in web applications and mobile development">
+    <meta name="keywords" content="developer, web development, mobile apps, Android, Laravel, PHP, JavaScript">
+    <meta property="og:title" content="Bright Ugosima - Full Stack Developer">
+    <meta property="og:description" content="A passionate developer focused on building trusted digital experiences">
+    <meta property="og:image" content="dev_image.jpg">
+    <meta name="theme-color" content="#2128b4">
+    <title>Bright Ugosima | Full Stack Developer</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script>
+        // Smooth scrolling for anchor links
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a.nav-link, a.btn');
+
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+
+        function show_cv() {
+            const container = document.getElementById('cv_container');
+            container.style.display = 'block';
+            container.classList.add('fade-in');
+            document.body.style.overflow = 'hidden';
+        }
+        function hide_cv() {
+            const container = document.getElementById('cv_container');
+            container.classList.remove('fade-in');
+            container.classList.add('fade-out');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                container.style.display = 'none';
+                container.classList.remove('fade-out');
+            }, 300);
+        }
+
+        // Close CV when clicking outside
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('cv_container');
+            container.addEventListener('click', function(e) {
+                if (e.target === container) {
+                    hide_cv();
+                }
+            });
+
+            // Add keyboard support
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && container.style.display === 'block') {
+                    hide_cv();
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -22,15 +85,38 @@
         
         <div  class="hero-text">
             <br><br>
-            <h1>Welcome, i'm Bright.</h1>
+            <h1>Welcome, I'm Bright.</h1>
 
             <p class="tagline">A passionate developer focused on building trusted digital experiences.</p>
-            <a href="#projects" class="btn">View CV</a>
+            <a class="btn" onclick="show_cv();">View CV</a>
         </div>
         </div>
-    </header>
 
+
+    </header>
+     
     <section id="about" class="about">
+
+        <div id="cv_container">
+            <div id="close_button">
+                <button onclick="hide_cv()">x close</button>
+            </div>
+        <iframe
+            src="Iwuegbu_Ugochukwu_Bright_CV.pdf#zoom=FitW"
+            style="width: 100%; height: calc(100% - 40px); border: none; display: block;"
+        >
+            <p class="pdf-fallback">
+                It seems your browser cannot display PDF files directly.
+                <a href="Iwuegbu_Ugochukwu_Bright_CV.pdf" download class="download-btn">
+                    Download CV (PDF)
+                </a>
+            </p>
+        </iframe>
+        <a href="Iwuegbu_Ugochukwu_Bright_CV.pdf" download class="download-btn mobile-download">
+            Download CV (PDF)
+        </a>
+        </div>
+
         <h2 class="section-title">About me</h2>
         
         <p class="about-text">
@@ -60,37 +146,56 @@
 
             <div class="project-card">
                 <h3>Originality camera</h3>
+                <div class="project-image" style="background-image: url('projects/originality-camera.jpg');">
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">View Demo</a>
+                        <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </div>
                 <p>
-                    a cross-platform camera app built with Kotlin and C++ native modules.
-                    it captures both photos and videos, embeds invisible pixel-level watermarks
+                    A cross-platform camera app built with Kotlin and C++ native modules.
+                    It captures both photos and videos, embeds invisible pixel-level watermarks
                     in real time, hashes the raw binary data and anchors authenticity records
                     on the blockchain.
-
-                    It ensures media integrity and provenance from capture to sharing.
                 </p>
-                <br>
-                <span class="tech">Kotlin • C++ • blockchain • secure media</span>
+                <div class="project-footer">
+                    <span class="tech">Kotlin • C++ • blockchain • secure media</span>
+                </div>
             </div>
 
             <div class="project-card">
                 <h3>Artshare web app</h3>
+                <div class="project-image" style="background-image: url('projects/artshare.jpg');">
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Live Site</a>
+                        <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </div>
                 <p>
-                    a sleek platform for creatives to showcase artworks with tamper-proof ownership
-                    verification. users can explore community art galleries and verify creators through
+                    A sleek platform for creatives to showcase artworks with tamper-proof ownership
+                    verification. Users can explore community art galleries and verify creators through
                     cryptographic signatures.
                 </p>
-                <br>
-                <span class="tech">javascript • laravel • UI/UX</span>
+                <div class="project-footer">
+                    <span class="tech">JavaScript • Laravel • UI/UX</span>
+                </div>
             </div>
 
             <div class="project-card">
                 <h3>Animated landing page</h3>
+                <div class="project-image" style="background-image: url('projects/animated-landing.jpg');">
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Live Site</a>
+                        <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </div>
                 <p>
-                    a smooth-scrolling landing page with subtle animations that respond to user intent.
-                    thoughtful motion and a minimal visual style elevate brand storytelling.
+                    A smooth-scrolling landing page with subtle animations that respond to user intent.
+                    Thoughtful motion and a minimal visual style elevate brand storytelling.
                 </p>
-                <br>
-                <span class="tech">html • css • scroll animations</span>
+                <div class="project-footer">
+                    <span class="tech">HTML • CSS • Scroll Animations</span>
+                </div>
             </div>
 
         </div>
@@ -113,7 +218,7 @@
             </div>
 
             <div>
-            <a href="mailto:ugochukwubright07@gmail.com"> <span id="email_text">Email:</span><span>thedevbright@gmail.com</span> </a>
+            <a href="mailto:ugochukwubright07@gmail.com"> <span id="email_text">Email</span><span>|| thedevbright@gmail.com</span> </a>
             </div>
 
             <div>
